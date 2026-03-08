@@ -1,157 +1,204 @@
-/* ===== Global Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Poppins', sans-serif;
+    color:#e6e6e6;
+    line-height:1.6;
+    padding:40px;
+
+    min-height:200vh;
+
+    position:relative;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:url("anime.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    filter:blur(10px);
+    transform:scale(1.1);
+
+    z-index:-1;
+}
+header{
+    text-align:center;
+    margin-bottom:50px;
+}
+header h1{
+    font-size:42px;
+    color: #f8f4f4;
+    font-weight:600;
+}
+header p{
+    color:#020000;
+    margin-top:6px;
+}
+.logo{
+    width:120px;
+    margin-top:20px;
+    border-radius:50%;
+}
+main{
+    max-width:900px;
+    margin:auto;
+}
+section{
+    background:#6a56d86b;
+    padding:30px;
+    border-radius:10px;
+    margin-bottom:30px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.35);
+}
+#terms{
+    background:#4308e69a;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 22px rgba(0,0,0,0.35);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(8px);
+    color: #e6e6e6;
+}
+#privacy{
+    background:#e60606a2;
+    padding:30px;
+    border-radius:10px;
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(8px);
+    color: #e6e6e6;
+}
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+.btn1{
+    padding:12px 24px;
+    font-size:16px;
+    font-family:'Poppins',sans-serif;
+
+    border-radius:10px;
+    border:1px solid rgba(83, 58, 228, 0.2);
+
+    background:rgba(207, 45, 4, 0.445);
+
+    color:white;
+    cursor:pointer;
+    text-decoration:none;
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+
+    transition:0.25s ease;
 }
 
-/* ===== Page Background ===== */
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #4fa8e0 0%, #1f3d52 50%, #cfd8dc 100%);
-  font-family: "Poppins", "Segoe UI", Roboto, sans-serif;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.btn{
+    padding:12px 24px;
+    font-size:16px;
+    font-family:'Poppins',sans-serif;
+
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.2);
+
+    background:rgb(89, 9, 236);
+
+    color:white;
+    cursor:pointer;
+    text-decoration:none;
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+
+    transition:0.25s ease;
+}
+.btn2{
+    padding:7px 25px;
+    font-size:13px;
+    font-family:'Poppins',sans-serif;
+
+    border:1px solid #d7d8e4;
+    border-radius:14px;
+
+    background:rgba(11,31,128,0.35);   /* transparent background */
+
+    color:white;
+    cursor:pointer;
+    text-decoration:none;
+
+    box-shadow:0 8px 20px rgba(233,230,230,0.4);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+.btn2:hover{
+    transform:translateZ(2px);
+    transform:scale(0.95);
+}
+.btn1:hover{
+    transform:translateZ(-2px);
+    box-shadow:0 8px 20px rgba(233, 230, 230, 0.4);
+    transform:scale(0.95);
+}
+.btn:hover{
+    transform:translateZ(-2px);
+    box-shadow:0 8px 20px rgba(233, 230, 230, 0.4);
+    transform:scale(0.90);
+}
+.btn:active{
+    transform:scale(0.90);
+    box-shadow:0 4px 10px rgba(233, 230, 230, 0.2);
+}
+.btn1:active{
+    transform:scale(0.90);
+    box-shadow:0 4px 10px rgba(233, 230, 230, 0.2);
+}
+#scrollBar{
+    position:fixed;
+    top:10px;
+    left:50%;
+
+    transform:translate(-50%, -120%);
+
+    width:85%;
+    max-width:1100px;
+
+    padding:10px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(25,45,35,0.65);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.15);
+
+    transition:transform 0.35s ease;
+
+    z-index:9999;
 }
 
-/* ===== Header ===== */
-header {
-  text-align: center;
-  padding: 45px 20px 30px;
-  max-width: 900px;
+#scrollBar.active{
+    transform:translate(-50%,0);
 }
-
-/* Logo */
-header .logo {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 18px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  border: 4px solid rgba(255,255,255,0.5);
-}
-
-/* Title */
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
-  color: #1b1b1b;
-}
-
-/* Subtitle */
-header p {
-  color: #555;
-  font-size: 0.95rem;
-}
-
-/* ===== Main Container ===== */
-main {
-  width: 90%;
-  max-width: 900px;
-
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(14px);
-
-  border-radius: 16px;
-  padding: 35px 30px;
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.15),
-    inset 0 0 0 1px rgba(255,255,255,0.3);
-
-  margin-bottom: 40px;
-  transition: transform 0.25s ease;
-}
-
-main:hover {
-  transform: translateY(-3px);
-}
-
-/* ===== Section spacing ===== */
-section {
-  margin-bottom: 25px;
-}
-
-/* Section Titles */
-main h2 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  color: #111;
-  border-bottom: 2px solid #e3e7ea;
-  padding-bottom: 6px;
-}
-
-/* Sub headings */
-main h3 {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #2e2e2e;
-}
-
-/* Paragraph text */
-main p {
-  color: #444;
-  line-height: 1.65;
-  font-size: 0.95rem;
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
-
-/* Lists */
-main ul {
-  margin-top: 8px;
-  margin-left: 20px;
-}
-
-main li {
-  margin-bottom: 6px;
-  color: #444;
-}
-
-/* ===== Links ===== */
-a {
-  color: #0069c0;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #004b8a;
-  text-decoration: underline;
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-footer small {
-  opacity: 0.8;
-}
-
-/* ===== Mobile Optimization ===== */
-@media (max-width: 600px) {
-
-  header h1 {
-    font-size: 1.9rem;
-  }
-
-  main {
-    padding: 25px 20px;
-  }
-
-  main h2 {
-    font-size: 1.35rem;
-  }
-
+footer{
+    text-align:center;
+    margin-top:50px;
+    color:#0e0303;
 }
